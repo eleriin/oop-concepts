@@ -6,5 +6,5 @@ class Student {
 }
 
 const student = new Student('John')
-console.log(student.name)
-console.log(student.finished)
+console.log(student.name)  //John
+console.log(student.finished)  //false

@@ -1,29 +1,41 @@
-class Circle {
-    corners (){
-        console.log('Circle does not have any corners')
+class Shape {
+    #color
+    constructor(color){
+        this.#color = color
+    }
+    
+    setColor(color){
+        this.#color = color
     }
 
-    sides(){
-        console.log('Circle has one side')
+    getColor(){
+        return this.#color
+    }
+
+    getArea(){
+        return null
     }
 }
-
-class Retangle{
-    corners (){
-        console.log('Retangle has 4 corners')
+    class Circle extends Shape {
+        #radius
+        constructor(color,radius){
+        super(color)
+        this.#radius = radius
     }
 
-    sides(){
-        console.log('Retangle has 4 side')
+    getArea(){
+        return Math.PI * Math.pow(this.#radius,2)
     }
-}
 
-const cornersTest = (shape) => {
-    shape.corners()
-}
+    print(){
+         return `Circle (r: {${this.#radius}}, color: {${this.getColor()}}).`
+    }
+    }
 
-const shape1 = new Circle()
-const shape2 = new Retangle()
+    const shape1 = new Shape ('red')
+    console.log('shape color', shape1.getColor())
+    console.log('shape area', shape1.getArea())
 
-cornersTest(shape1)
-cornersTest(shape2)
+    const circle1 = new Circle ('blue',5)
+    console.log(circle1.print())
+    console.log('circle area', circle1.getArea())
